@@ -21,6 +21,7 @@ class DriverLicenseUpdateForm(forms.ModelForm):
         license_number = self.cleaned_data["license_number"]
 
         if (len(license_number) == 8
+                and license_number[:3].isalpha()
                 and license_number[:3].isupper()
                 and license_number[3:].isdigit()):
             return license_number
@@ -40,6 +41,7 @@ class DriverLicenseCreationForm(forms.ModelForm):
         license_number = self.cleaned_data["license_number"]
 
         if (len(license_number) == 8
+                and license_number[:3].isalpha()
                 and license_number[:3].isupper()
                 and license_number[3:].isdigit()):
             return license_number
